@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_prev_league"
+        android:icon="@drawable/ic_trophy"
+        android:title="@string/prev_league" />
+
+    <item
+        android:id="@+id/navigation_next_league"
+        android:icon="@drawable/ic_event"
+        android:title="@string/next_league" />
+
+</menu>
