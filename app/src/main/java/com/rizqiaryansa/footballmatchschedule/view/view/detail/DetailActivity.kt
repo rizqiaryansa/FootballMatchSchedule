@@ -106,7 +106,7 @@ class DetailActivity : AppCompatActivity(), DetailView {
                             }.lparams(width = wrapContent, height = wrapContent)
 
                             textView {
-                                text = "vs"
+                                text = context.getString(R.string.resource_vs)
                                 textSize = 24f
                             }.lparams(width = wrapContent, height = wrapContent) {
                                 leftMargin = dip(8)
@@ -206,7 +206,7 @@ class DetailActivity : AppCompatActivity(), DetailView {
                             relativeLayout {
                                 textView {
                                     textSize = 18f
-                                    text = "Shots"
+                                    text = context.getString(R.string.resource_shots)
                                     textColor = colorPrimary
                                 }.lparams(width = wrapContent, height = wrapContent) {
                                     gravity = Gravity.CENTER_HORIZONTAL
@@ -235,7 +235,7 @@ class DetailActivity : AppCompatActivity(), DetailView {
 
                         textView {
                             textSize = 18f
-                            text = "Lineups"
+                            text = context.getString(R.string.resource_lineups)
                         }.lparams(width = wrapContent, height = wrapContent)
 
                         //goalkeeper
@@ -257,7 +257,7 @@ class DetailActivity : AppCompatActivity(), DetailView {
                             relativeLayout {
                                 textView {
                                     textSize = 14f
-                                    text = "Goal Keeper"
+                                    text = context.getString(R.string.resource_goalkeeper)
                                     textColor = colorPrimary
                                     setTypeface(null, Typeface.BOLD)
                                 }.lparams(width = wrapContent, height = wrapContent) {
@@ -297,7 +297,7 @@ class DetailActivity : AppCompatActivity(), DetailView {
                             relativeLayout {
                                 textView {
                                     textSize = 14f
-                                    text = "Defense"
+                                    text = context.getString(R.string.resource_defense)
                                     textColor = colorPrimary
                                     setTypeface(null, Typeface.BOLD)
                                 }.lparams(width = wrapContent, height = wrapContent) {
@@ -337,7 +337,7 @@ class DetailActivity : AppCompatActivity(), DetailView {
                             relativeLayout {
                                 textView {
                                     textSize = 14f
-                                    text = "Midfield"
+                                    text = context.getString(R.string.resource_midfield)
                                     textColor = colorPrimary
                                     setTypeface(null, Typeface.BOLD)
                                 }.lparams(width = wrapContent, height = wrapContent) {
@@ -377,7 +377,7 @@ class DetailActivity : AppCompatActivity(), DetailView {
                             relativeLayout {
                                 textView {
                                     textSize = 14f
-                                    text = "Forward"
+                                    text = context.getString(R.string.resource_forward)
                                     textColor = colorPrimary
                                     setTypeface(null, Typeface.BOLD)
                                 }.lparams(width = wrapContent, height = wrapContent) {

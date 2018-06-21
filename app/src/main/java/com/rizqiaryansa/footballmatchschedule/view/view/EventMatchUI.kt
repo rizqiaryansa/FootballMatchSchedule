@@ -56,7 +56,7 @@ class EventMatchUI : AnkoComponent<ViewGroup> {
 
                     textView {
                         id = R.id.tvVersus
-                        text = "vs"
+                        text = context.getString(R.string.resource_vs)
                         textSize = 14f
                     }.lparams(height = wrapContent, width = wrapContent) {
                         leftMargin = dip(4)

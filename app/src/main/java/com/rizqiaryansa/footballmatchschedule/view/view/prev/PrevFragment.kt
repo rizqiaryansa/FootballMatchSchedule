@@ -19,7 +19,6 @@ import com.rizqiaryansa.footballmatchschedule.view.model.Event
 import com.rizqiaryansa.footballmatchschedule.view.presenter.PrevPresenter
 import com.rizqiaryansa.footballmatchschedule.view.util.SpaceItemDecoration
 import com.rizqiaryansa.footballmatchschedule.view.util.gone
-import com.rizqiaryansa.footballmatchschedule.view.util.invisible
 import com.rizqiaryansa.footballmatchschedule.view.util.visible
 import org.jetbrains.anko.*
 import org.jetbrains.anko.recyclerview.v7.recyclerView
@@ -83,7 +82,7 @@ class PrevFragment : Fragment(), PrevView {
         initAdapter()
 
         swipeRefresh.onRefresh {
-            presenter.getEventList("eventspastleague")
+            presenter.getEventList(getString(R.string.resource_eventspastleague))
         }
     }
 
@@ -98,7 +97,7 @@ class PrevFragment : Fragment(), PrevView {
         val request = ApiRequest()
         val gson = Gson()
         presenter = PrevPresenter(this, request, gson)
-        presenter.getEventList("eventspastleague")
+        presenter.getEventList(getString(R.string.resource_eventspastleague))
     }
 
     override fun showLoading() {
@@ -106,7 +105,7 @@ class PrevFragment : Fragment(), PrevView {
     }
 
     override fun hideLoading() {
-        progressBar.invisible()
+        progressBar.gone()
     }
 
     override fun showEventList(data: List<Event>) {

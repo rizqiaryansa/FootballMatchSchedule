@@ -23,6 +23,7 @@ import org.jetbrains.anko.*
 import org.jetbrains.anko.design.longSnackbar
 import org.jetbrains.anko.recyclerview.v7.recyclerView
 import org.jetbrains.anko.support.v4.UI
+import org.jetbrains.anko.support.v4.onRefresh
 import org.jetbrains.anko.support.v4.swipeRefreshLayout
 
 /**
@@ -81,6 +82,10 @@ class NextFragment : Fragment(), NextView {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         initAdapter()
+
+        swipeRefresh.onRefresh {
+            presenter.getEventList(getString(R.string.resource_eventsnextleague))
+        }
     }
 
     private fun initAdapter() {
@@ -90,7 +95,7 @@ class NextFragment : Fragment(), NextView {
         val request = ApiRequest()
         val gson = Gson()
         presenter = NextPresenter(this, request, gson)
-        presenter.getEventList("eventsnextleague")
+        presenter.getEventList(getString(R.string.resource_eventsnextleague))
     }
 
     override fun showLoading() {

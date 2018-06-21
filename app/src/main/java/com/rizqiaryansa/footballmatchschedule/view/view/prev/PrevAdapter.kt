@@ -1,22 +1,16 @@
 package com.rizqiaryansa.footballmatchschedule.view.view.prev
 
-import android.graphics.Typeface
 import android.support.v7.widget.RecyclerView
-import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
 import android.widget.TextView
 import com.rizqiaryansa.footballmatchschedule.R
-import com.rizqiaryansa.footballmatchschedule.R.color.colorBlack
-import com.rizqiaryansa.footballmatchschedule.R.color.colorPrimary
 import com.rizqiaryansa.footballmatchschedule.R.string.item_away_id
 import com.rizqiaryansa.footballmatchschedule.R.string.item_home_id
 import com.rizqiaryansa.footballmatchschedule.view.model.Event
 import com.rizqiaryansa.footballmatchschedule.view.view.EventMatchUI
 import com.rizqiaryansa.footballmatchschedule.view.view.detail.DetailActivity
 import org.jetbrains.anko.*
-import org.jetbrains.anko.cardview.v7.cardView
 import java.text.SimpleDateFormat
 import java.util.*
 

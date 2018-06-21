@@ -34,4 +34,13 @@
     <string name="item_away_id">item_away_id</string>
     <string name="item_eventdetail_id">item_eventdetail_id</string>
     <string name="match_detail">Match Detail</string>
+    <string name="resource_eventsnextleague">eventsnextleague</string>
+    <string name="resource_eventspastleague">eventspastleague</string>
+    <string name="resource_vs">vs</string>
+    <string name="resource_shots">Shots</string>
+    <string name="resource_forward">Forward</string>
+    <string name="resource_midfield">Midfield</string>
+    <string name="resource_defense">Defense</string>
+    <string name="resource_goalkeeper">Goal Keeper</string>
+    <string name="resource_lineups">Lineups</string>
 </resources>
