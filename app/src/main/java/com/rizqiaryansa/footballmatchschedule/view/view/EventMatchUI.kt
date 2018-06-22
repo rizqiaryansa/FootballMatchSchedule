@@ -28,7 +28,7 @@ class EventMatchUI : AnkoComponent<ViewGroup> {
                     textColor = R.color.colorPrimary
                     gravity = Gravity.CENTER
                     setTypeface(null, Typeface.BOLD)
-                    textSize = 14f
+                    textSize = 16f
                 }.lparams{
                     bottomMargin = dip(8)
                 }
@@ -40,7 +40,7 @@ class EventMatchUI : AnkoComponent<ViewGroup> {
 
                     textView {
                         id = R.id.tvHomeTeam
-                        textSize = 18f
+                        textSize = 20f
                         textColor = R.color.colorBlack
                     }.lparams(width = wrapContent, height = wrapContent) {
 
@@ -48,7 +48,7 @@ class EventMatchUI : AnkoComponent<ViewGroup> {
 
                     textView {
                         id = R.id.tvHomeScore
-                        textSize = 16f
+                        textSize = 24f
                         setTypeface(null, Typeface.BOLD)
                     }.lparams(width = wrapContent, height = wrapContent) {
                         leftMargin = dip(8)
@@ -57,7 +57,8 @@ class EventMatchUI : AnkoComponent<ViewGroup> {
                     textView {
                         id = R.id.tvVersus
                         text = context.getString(R.string.resource_vs)
-                        textSize = 14f
+                        gravity = Gravity.CENTER
+                        textSize = 18f
                     }.lparams(height = wrapContent, width = wrapContent) {
                         leftMargin = dip(4)
                     }
@@ -65,14 +66,14 @@ class EventMatchUI : AnkoComponent<ViewGroup> {
                     textView {
                         id = R.id.tvAwayScore
                         setTypeface(null, Typeface.BOLD)
-                        textSize = 16f
+                        textSize = 24f
                     }.lparams(width = wrapContent, height = wrapContent) {
                         leftMargin = dip(4)
                     }
 
                     textView {
                         id = R.id.tvAwayTeam
-                        textSize = 18f
+                        textSize = 20f
                         textColor = R.color.colorBlack
                     }.lparams(width = wrapContent, height = wrapContent) {
                         leftMargin = dip(8)

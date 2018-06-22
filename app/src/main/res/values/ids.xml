@@ -12,4 +12,5 @@
     <item name="pbPrevEvent" type="id" />
     <item name="rvNextEvent" type="id" />
     <item name="pbNextEvent" type="id" />
+    <item name="bottom_layout" type="id" />
 </resources>

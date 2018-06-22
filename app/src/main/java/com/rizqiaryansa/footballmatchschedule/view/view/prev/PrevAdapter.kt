@@ -1,4 +1,4 @@
-package com.rizqiaryansa.footballmatchschedule.view.view.prev
+package com.rizqiaryansa.footballmatcheschedule.view.view.prev
 
 import android.support.v7.widget.RecyclerView
 import android.view.View
@@ -14,7 +14,7 @@ import org.jetbrains.anko.*
 import java.text.SimpleDateFormat
 import java.util.*
 
-class PrevAdapter(private val matchs: List<Event>) :
+class PrevAdapter(private val matches: List<Event>) :
         RecyclerView.Adapter<PrevViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PrevViewHolder {
@@ -22,10 +22,10 @@ class PrevAdapter(private val matchs: List<Event>) :
                 parent)))
     }
 
-    override fun getItemCount(): Int = matchs.size
+    override fun getItemCount(): Int = matches.size
 
     override fun onBindViewHolder(holder: PrevViewHolder, position: Int) {
-        holder.bindItem(matchs[position])
+        holder.bindItem(matches[position])
     }
 
 }
@@ -39,26 +39,26 @@ class PrevViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     private val awayTeam: TextView = view.find(R.id.tvAwayTeam)
 
 
-    fun bindItem(matchs: Event) {
+    fun bindItem(matches: Event) {
 
         val timeEvent = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
-                .parse(matchs.dateEvent)
+                .parse(matches.dateEvent)
         val dateEvent = SimpleDateFormat("EEEE, dd MMMM yyyy", Locale.getDefault())
                 .format(timeEvent)
 
         timeSchedule.text = dateEvent.toString()
-        homeTeam.text = matchs.strHomeTeam
-        homeScore.text = matchs.intHomeScore
-        awayScore.text = matchs.intAwayScore
-        awayTeam.text = matchs.strAwayTeam
+        homeTeam.text = matches.strHomeTeam
+        homeScore.text = matches.intHomeScore
+        awayScore.text = matches.intAwayScore
+        awayTeam.text = matches.strAwayTeam
 
         val ctx = itemView.context
 
         itemView.setOnClickListener {
             ctx.startActivity<DetailActivity>(
-                    ctx.getString(R.string.item_eventdetail_id) to matchs.idEvent,
-                    ctx.getString(item_home_id) to matchs.idHomeTeam,
-                    ctx.getString(item_away_id) to matchs.idAwayTeam)
+                    ctx.getString(R.string.item_eventdetail_id) to matches.idEvent,
+                    ctx.getString(item_home_id) to matches.idHomeTeam,
+                    ctx.getString(item_away_id) to matches.idAwayTeam)
         }
     }
 }

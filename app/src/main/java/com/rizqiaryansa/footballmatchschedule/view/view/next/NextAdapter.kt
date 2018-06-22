@@ -35,20 +35,20 @@ class NextViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     private val awayTeam: TextView = view.find(R.id.tvAwayTeam)
 
 
-    fun bindItem(matchs: Event) {
-        timeSchedule.text = matchs.dateEvent
-        homeTeam.text = matchs.strHomeTeam
-        homeScore.text = matchs.intHomeScore
-        awayScore.text = matchs.intAwayScore
-        awayTeam.text = matchs.strAwayTeam
+    fun bindItem(matches: Event) {
+        timeSchedule.text = matches.dateEvent
+        homeTeam.text = matches.strHomeTeam
+        homeScore.text = matches.intHomeScore
+        awayScore.text = matches.intAwayScore
+        awayTeam.text = matches.strAwayTeam
 
         val ctx = itemView.context
 
         itemView.setOnClickListener {
             ctx.startActivity<DetailActivity>(
-                    ctx.getString(R.string.item_eventdetail_id) to matchs.idEvent,
-                    ctx.getString(R.string.item_home_id) to matchs.idHomeTeam,
-                    ctx.getString(R.string.item_away_id) to matchs.idAwayTeam)
+                    ctx.getString(R.string.item_eventdetail_id) to matches.idEvent,
+                    ctx.getString(R.string.item_home_id) to matches.idHomeTeam,
+                    ctx.getString(R.string.item_away_id) to matches.idAwayTeam)
         }
     }
 }
