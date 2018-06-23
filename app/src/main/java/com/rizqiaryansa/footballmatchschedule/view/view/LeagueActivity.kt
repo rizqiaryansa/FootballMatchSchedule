@@ -25,7 +25,7 @@ class LeagueActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        toolbar = supportActionBar!!
+        toolbar = supportActionBar as ActionBar
 
         LeagueActivityUI().setContentView(this)
 
