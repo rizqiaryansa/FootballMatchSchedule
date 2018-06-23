@@ -1,6 +1,7 @@
 package com.rizqiaryansa.footballmatchschedule.view.view.detail
 
 import android.database.sqlite.SQLiteConstraintException
+import android.graphics.Color
 import android.graphics.Typeface
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -25,7 +26,6 @@ import com.rizqiaryansa.footballmatchschedule.view.util.gone
 import com.rizqiaryansa.footballmatchschedule.view.util.visible
 import com.squareup.picasso.Picasso
 import org.jetbrains.anko.*
-import org.jetbrains.anko.cardview.v7.cardView
 import org.jetbrains.anko.db.classParser
 import org.jetbrains.anko.db.delete
 import org.jetbrains.anko.db.insert
@@ -97,17 +97,20 @@ class DetailActivity : AppCompatActivity(), DetailView {
                     android.R.color.holo_red_light)
             scrollView {
                 lparams(width = matchParent, height = matchParent)
-
                 relativeLayout {
-                    cardView {
+                    lparams(width = matchParent, height = matchParent)
                         lyEventDetail = linearLayout {
+                            lparams(width = matchParent, height = matchParent)
                             orientation = LinearLayout.VERTICAL
                             gravity = Gravity.CENTER
+                            backgroundColor = Color.WHITE
+                            padding = dip(16)
 
                             tvDateEvent = textView {
                                 gravity = Gravity.CENTER
                                 textColor = colorPrimary
                                 textSize = 18f
+                                setTypeface(null, Typeface.BOLD)
                             }.lparams(width = wrapContent, height = wrapContent) {
                                 topMargin = dip(8)
                                 bottomMargin = dip(16)
@@ -422,18 +425,12 @@ class DetailActivity : AppCompatActivity(), DetailView {
                                     topMargin = dip(8)
                                 }
                             }
-
-                        }.lparams(width = matchParent, height = matchParent) {
-                            margin = dip(16)
                         }
-
-                    }.lparams(width = matchParent, height = matchParent)
-
                     progressBar = progressBar {
                     }.lparams {
                         centerInParent()
                     }
-                }.lparams(width = matchParent, height = matchParent)
+                }
             }
         }
     }

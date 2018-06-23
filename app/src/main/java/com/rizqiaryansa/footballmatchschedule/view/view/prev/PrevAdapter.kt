@@ -5,8 +5,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import com.rizqiaryansa.footballmatchschedule.R
-import com.rizqiaryansa.footballmatchschedule.R.string.item_away_id
-import com.rizqiaryansa.footballmatchschedule.R.string.item_home_id
 import com.rizqiaryansa.footballmatchschedule.view.model.Event
 import com.rizqiaryansa.footballmatchschedule.view.view.EventMatchUI
 import com.rizqiaryansa.footballmatchschedule.view.view.detail.DetailActivity
@@ -57,8 +55,8 @@ class PrevViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         itemView.setOnClickListener {
             ctx.startActivity<DetailActivity>(
                     ctx.getString(R.string.item_eventdetail_id) to matches.idEvent,
-                    ctx.getString(item_home_id) to matches.idHomeTeam,
-                    ctx.getString(item_away_id) to matches.idAwayTeam)
+                    ctx.getString(R.string.item_home_id) to matches.idHomeTeam,
+                    ctx.getString(R.string.item_away_id) to matches.idAwayTeam)
         }
     }
 }

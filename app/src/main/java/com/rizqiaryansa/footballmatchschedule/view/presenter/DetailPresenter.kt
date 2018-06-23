@@ -6,8 +6,9 @@ import com.rizqiaryansa.footballmatchschedule.view.api.TheSportDBApi
 import com.rizqiaryansa.footballmatchschedule.view.model.EventResponse
 import com.rizqiaryansa.footballmatchschedule.view.model.TeamResponse
 import com.rizqiaryansa.footballmatchschedule.view.view.detail.DetailView
-import org.jetbrains.anko.doAsync
-import org.jetbrains.anko.uiThread
+import kotlinx.coroutines.experimental.android.UI
+import kotlinx.coroutines.experimental.async
+import org.jetbrains.anko.coroutines.experimental.bg
 
 class DetailPresenter(private val view: DetailView,
                       private val apiRequest: ApiRequest,
@@ -16,20 +17,22 @@ class DetailPresenter(private val view: DetailView,
     fun getEventDetail(idEvent: String?, idHomeTeam: String?, idAwayTeam: String?) {
         view.showLoading()
 
-        doAsync {
-            val eventDetail = gson.fromJson(apiRequest.doRequest(TheSportDBApi.
-                    getDetailEvent(idEvent)),
-                    EventResponse::class.java)
-            val badgeHome = gson.fromJson(apiRequest.doRequest(TheSportDBApi.
-                    getHomeBadge(idHomeTeam)), TeamResponse::class.java)
-            val badgeAway = gson.fromJson(apiRequest.doRequest(TheSportDBApi.
-                    getAwayBadge(idAwayTeam)),
-                    TeamResponse::class.java)
-
-            uiThread {
-                view.hideLoading()
-                view.showEventList(eventDetail.match, badgeHome.teams, badgeAway.teams)
+        async(UI) {
+            val eventDetail = bg {
+                gson.fromJson(apiRequest.doRequest(TheSportDBApi.getDetailEvent(idEvent)),
+                        EventResponse::class.java)
             }
+            val badgeHome = bg {
+                gson.fromJson(apiRequest.doRequest(TheSportDBApi.getHomeBadge(idHomeTeam)),
+                        TeamResponse::class.java)
+            }
+            val badgeAway =  bg {
+                gson.fromJson(apiRequest.doRequest(TheSportDBApi.getAwayBadge(idAwayTeam)),
+                        TeamResponse::class.java)
+            }
+            view.showEventList(eventDetail.await().match, badgeHome.await().teams,
+                    badgeAway.await().teams)
+            view.hideLoading()
         }
     }
 }

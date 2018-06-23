@@ -5,8 +5,9 @@ import com.rizqiaryansa.footballmatchschedule.view.api.ApiRequest
 import com.rizqiaryansa.footballmatchschedule.view.api.TheSportDBApi
 import com.rizqiaryansa.footballmatchschedule.view.model.EventResponse
 import com.rizqiaryansa.footballmatchschedule.view.view.next.NextView
-import org.jetbrains.anko.doAsync
-import org.jetbrains.anko.uiThread
+import kotlinx.coroutines.experimental.android.UI
+import kotlinx.coroutines.experimental.async
+import org.jetbrains.anko.coroutines.experimental.bg
 
 class NextPresenter (private val view: NextView,
                      private val apiRequest: ApiRequest,
@@ -14,16 +15,14 @@ class NextPresenter (private val view: NextView,
 
     fun getEventList(match: String?) {
         view.showLoading()
-        doAsync {
-            val data = gson.fromJson(apiRequest.doRequest(TheSportDBApi.
-                    getSchedule(match)),
-                    EventResponse::class.java
-            )
-
-            uiThread {
-                view.hideLoading()
-                view.showEventList(data.match)
+        async(UI) {
+            val data = bg {
+                gson.fromJson(apiRequest.doRequest(TheSportDBApi.getSchedule(match)),
+                        EventResponse::class.java
+                )
             }
+            view.showEventList(data.await().match)
+            view.hideLoading()
         }
     }
 }
