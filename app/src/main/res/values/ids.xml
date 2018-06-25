@@ -13,4 +13,6 @@
     <item name="rvNextEvent" type="id" />
     <item name="pbNextEvent" type="id" />
     <item name="bottom_layout" type="id" />
+    <item name="pbDetailEvent" type="id" />
+    <item name="lyEventDetail" type="id" />
 </resources>

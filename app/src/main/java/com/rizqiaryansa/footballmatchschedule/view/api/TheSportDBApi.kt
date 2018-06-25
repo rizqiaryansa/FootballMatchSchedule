@@ -23,4 +23,12 @@ object TheSportDBApi {
     fun getAwayBadge(idAway: String?) : String {
         return BuildConfig.BASE_URL + strLookUpTeam + idAway
     }
+
+    fun getPrevEvent(idEvent: String?): String {
+        return BuildConfig.BASE_URL + "eventspastleague.php?id=" + idEvent
+    }
+
+    fun getNextEvent(idEvent: String?): String {
+        return BuildConfig.BASE_URL + "eventsnextleague.php?id=" + idEvent
+    }
 }

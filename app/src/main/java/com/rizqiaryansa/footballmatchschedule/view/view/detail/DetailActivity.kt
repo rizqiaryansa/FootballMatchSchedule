@@ -100,6 +100,7 @@ class DetailActivity : AppCompatActivity(), DetailView {
                 relativeLayout {
                     lparams(width = matchParent, height = matchParent)
                         lyEventDetail = linearLayout {
+                            id = R.id.lyEventDetail
                             lparams(width = matchParent, height = matchParent)
                             orientation = LinearLayout.VERTICAL
                             gravity = Gravity.CENTER
@@ -427,6 +428,7 @@ class DetailActivity : AppCompatActivity(), DetailView {
                             }
                         }
                     progressBar = progressBar {
+                        id = R.id.pbDetailEvent
                     }.lparams {
                         centerInParent()
                     }
