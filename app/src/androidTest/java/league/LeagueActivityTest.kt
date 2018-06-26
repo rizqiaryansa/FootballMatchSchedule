@@ -1,7 +1,6 @@
 package league
 
-import android.support.test.espresso.Espresso.onView
-import android.support.test.espresso.Espresso.pressBack
+import android.support.test.espresso.Espresso.*
 import android.support.test.espresso.action.ViewActions.click
 import android.support.test.espresso.action.ViewActions.swipeDown
 import android.support.test.espresso.assertion.ViewAssertions.matches
@@ -43,9 +42,16 @@ class LeagueActivityTest {
         onView(withId(swipeRefresh)).perform(swipeDown())
 
         //
-        onView(withText("Chelsea")).check(matches(isDisplayed()))
-        onView(withText("Chelsea")).perform(click())
-        onView(withId(pbDetailEvent)).check(matches(isDisplayed()))
+        onView(withId(container)).check(matches(isDisplayed()))
+        onView(withId(navigation_prev_league)).check(matches(isDisplayed()))
+        onView(withId(navigation_next_league)).check(matches(isDisplayed()))
+        onView(withId(navigation_favorites)).check(matches(isDisplayed()))
+
+        Thread.sleep(wait)
+        onView(withId(rvPrevEvent)).check(matches(isDisplayed()))
+        onView(withId(rvPrevEvent))
+                .perform(RecyclerViewActions.actionOnItemAtPosition
+                <RecyclerView.ViewHolder>(5, click()));
 
         Thread.sleep(wait)
         onView(withId(lyEventDetail)).check(matches(isDisplayed()))
